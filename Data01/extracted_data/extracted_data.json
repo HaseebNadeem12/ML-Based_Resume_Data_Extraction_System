@@ -1,0 +1,16 @@
+{
+    "personal_information": {
+        "email": "jwsmith@colostate.edu",
+        "phone_number": null
+    },
+    "experience": [
+        {
+            "section": "adult care experience",
+            "details": "\u2022 determined work placement for 150 special needs adult clients.\r\n\u2022 maintained client databases and records _\r\n\u2022 coordinated client contact with local health care professionals on a monthly basis.\r\n\u2022 managed 25 volunteer workers _"
+        },
+        {
+            "section": "childcare experience",
+            "details": "coordinated service assignments for 20 part-time counselors and 100 client families.\r\n\u2022 (hersaw dally activity and outing planning for 100 clients.\r\n\u2022 assisted families of special needs clients with researching financial assistance and"
+        }
+    ]
+}
