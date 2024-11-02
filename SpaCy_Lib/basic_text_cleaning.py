@@ -1,32 +1,31 @@
-# import spacy
-#
-# # Load the small English language model
-# nlp = spacy.load("en_core_web_sm")
-
-
 import spacy
 
-# Attempt to load the small English model
-try:
-    nlp = spacy.load("en_core_web_sm")
-    print("Model loaded successfully!")
-except Exception as e:
-    print(f"Error loading model: {e}")
+nlp = spacy.load("en_core_web_sm")
 
+# import spacy
+#
+# # Check the available models
+# print(spacy.util.get_installed_models())
 
+# # Attempt to load the small English model
+# try:
+#     nlp = spacy.load("en_core_web_sm")
+#     print("Model loaded successfully!")
+# except Exception as e:
+#     print(f"Error loading model: {e}")
 
 """Tokenization"""
-# # Tokenization is the process of breaking down text into individual words or tokens.
-#
-# # Example text
-# text = "SpaCy is an open-source software library for advanced Natural Language Processing."
-#
-# # Process the text with spaCy
-# doc = nlp(text)
-#
-# # Tokenize the text
-# tokens = [token.text for token in doc]
-# print(tokens)
+# Tokenization is the process of breaking down text into individual words or tokens.
+
+# Example text
+text = "SpaCy is an open-source software library for advanced Natural Language Processing."
+
+# Process the text with spaCy
+doc = nlp(text)
+
+# Tokenize the text
+tokens = [token.text for token in doc]
+print(tokens)
 
 
 """Removing Stop Words"""
@@ -50,20 +49,4 @@ except Exception as e:
 #
 # pos_tags = [(token.text, token.pos_) for token in doc]
 # print(pos_tags)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

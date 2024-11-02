@@ -1,16 +1,30 @@
 {
     "personal_information": {
-        "email": "jwsmith@colostate.edu",
+        "email": "hello@reallygreatsite.com",
         "phone_number": null
     },
     "experience": [
         {
-            "section": "adult care experience",
-            "details": "\u2022 determined work placement for 150 special needs adult clients.\r\n\u2022 maintained client databases and records _\r\n\u2022 coordinated client contact with local health care professionals on a monthly basis.\r\n\u2022 managed 25 volunteer workers _"
-        },
+            "section": "work experience",
+            "details": "engineering executive , borcelle technologies\r\njan 2023 - present\r\n\u2022 implemented cost-effective solutions, resulting in a 20% reduction in project expenses.\r\n\u2022 streamlined project workflows, enhancing overall efficiency by 25%.\r\n\u2022 led a team in successfully delivering a complex engineering project on time and within\r\nallocated budget.\r\nproject engineer, salford & co\r\n\u2022 managed project timelines, reducing delivery times by 30%.\r\nmar 2021 - dec 2022\r\n\u2022 spearheaded the adoption of cutting-edge engineering software, improving project\r\naccuracy by 15%.\r\n\u2022 collaborated with cross-functional teams, enhancing project success rates by 10%.\r\ngraduate engineer, arowwai industries\r\nfeb 2020 - jan 2021\r\n\u2022 coordinated project tasks, ensuring adherence to engineering standards and regulations.\r\n\u2022 conducted comprehensive project analyses, identifying and rectifying discrepancies in\r\nengineering designs."
+        }
+    ],
+    "education": [
         {
-            "section": "childcare experience",
-            "details": "coordinated service assignments for 20 part-time counselors and 100 client families.\r\n\u2022 (hersaw dally activity and outing planning for 100 clients.\r\n\u2022 assisted families of special needs clients with researching financial assistance and"
+            "section": "education",
+            "details": "master of science in mechanical engineering\r\nuniversity of engineering and technology\r\nspecialization in advanced manufacturing.\r\n\u2022 thesis on \"innovations in sustainable engineering practices\".\r\nbachelor of science in civil engineering\r\ncity college of engineering\r\n\u2022 relevant coursework in structural design and project management.\r\nadditional information\r\nsep 2019 - oct 2020\r\naug 2015 - aug 2019\r\n\u2022 technical"
+        }
+    ],
+    "skills": [
+        {
+            "section": "technical skills",
+            "details": ": project management, structural analysis, robotics and automation, cad\r\n\u2022 languages: english, malay, german\r\n\u2022"
+        }
+    ],
+    "certifications": [
+        {
+            "section": "certifications",
+            "details": ": professional engineer (pe) license, project management professional (pmp)\r\n\u2022 awards/activities: received the \"engineering excellence\" award for outstanding\r\ncontributions to project innovation, borcelle technologies"
         }
     ]
 }

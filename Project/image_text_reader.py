@@ -14,12 +14,15 @@ def normalize_text(text):
 
 # Function to extract text from an image or image path
 def extract_text_from_image(image):
+
     if isinstance(image, str):
         # If a file path is provided, read the image
         image = cv2.imread(image)
+
     # Use pytesseract to extract text from the image
     reading_image_text = pytesseract.image_to_string(image)
     return normalize_text(reading_image_text)
+
 
 # Function to handle both file paths and image arrays
 def extract_text_from_file(received_file_or_image):
@@ -73,7 +76,7 @@ def NoNoiseFunc(img):
     # display(image)
     return image
 
-img = cv2.imread("C:/Users/COMTECH COMPUTER/PycharmProjects/Optical_Character_Recognization01/Data01/image_01.jpg")
+img = cv2.imread("C:/Users/COMTECH COMPUTER/PycharmProjects/Optical_Character_Recognization01/Data01/my_doc_image03.jpg")
 # my_file = "C:/Users/COMTECH COMPUTER/PycharmProjects/Optical_Character_Recognization01/Data01/News_image.png"
 
 # Assigning to another variable (if needed for later use)
@@ -82,3 +85,4 @@ get_image2 = NoNoiseFunc(get_image1)
 extracted_text = extract_text_from_image(get_image2)
 
 print(extracted_text)
+

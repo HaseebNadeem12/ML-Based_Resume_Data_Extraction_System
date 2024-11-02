@@ -2,31 +2,35 @@ import nltk
 
 # nltk.download()
 
-text = """hello, this is my second month of learning python, and I am enjoying this field very much"""
+text = """hello, this is my second month of learning python,
+ and I am enjoying this field very much"""
 
 """Tokenization"""
 # from nltk.tokenize import word_tokenize, sent_tokenize
 # print(word_tokenize(text))
 # print(sent_tokenize(text))
+# print(text.split(" "))
 
 """Removing stop words"""
-# from nltk.corpus import stopwords
-# stop_word = stopwords.words('english')       # Contain some dublicate words
-# print(set(stopwords.words('english')))       # set always contain unique words
-#
-# from nltk.tokenize import word_tokenize,sent_tokenize
-# tokenize_word = word_tokenize(text)
-#
-# # To remove stop word from the text
-# without_stop_tokenize_word = []
-#
-# for word in tokenize_word:
-#     if word not in stop_word:
-#         without_stop_tokenize_word.append(word)
-#
-# print(without_stop_tokenize_word)
+from nltk.corpus import stopwords
+stop_word = stopwords.words('english')       # Prints all the stop words with dublicate
+# print(set(stopwords.words('english')))       # Print unique stop words
+
+from nltk.tokenize import word_tokenize
+tokenize_word_with_stop_words = word_tokenize(text)
+print(tokenize_word_with_stop_words)
+
+# To remove stop word from the text
+tokenize_word_without_stop_words = ''
+
+for word in tokenize_word_with_stop_words:
+    if word not in stop_word:
+        # tokenize_word_without_stop_words.append(word)
+        tokenize_word_without_stop_words = tokenize_word_without_stop_words + " " + word
+
+print(tokenize_word_without_stop_words)
 # # to see the stop word in the text, which we excluded
-# print(set(tokenize_word) - set(without_stop_tokenize_word))
+# print(set(tokenize_word_with_stop_words) - set(tokenize_word_without_stop_words))
 
 """Stemming & Leminization"""
 #both convert the words into their original form
@@ -61,6 +65,19 @@ text = """hello, this is my second month of learning python, and I am enjoying t
 # print(pos_tags)
 
 
+# Removing stop words
+from nltk.corpus import stopwords
+
+stop_words = stopwords.words('english')
+
+from nltk.tokenize import word_tokenize
+
+tokenize_word = word_tokenize(text)
+
+text_without_stop_word = " "
+for word in tokenize_word:
+    if word not in stop_words:
+        text_without_stop_word = text_without_stop_word + " " + word
 
 
 

@@ -39,7 +39,7 @@ def extract_text_from_file(received_file):
         raise ValueError(f"Unsupported file type: {extension}")
 
 # Example usage:
-my_file = "C:/Users/COMTECH COMPUTER/PycharmProjects/Optical_Character_Recognization01/Data01/my_cv03.docx"
+my_file = "C:/Users/COMTECH COMPUTER/PycharmProjects/Optical_Character_Recognization01/Data01/word_file01.docx"
 extracted_text = extract_text_from_file(my_file)
 print(extracted_text)
 

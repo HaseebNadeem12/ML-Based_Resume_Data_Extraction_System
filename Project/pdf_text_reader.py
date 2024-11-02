@@ -1,4 +1,4 @@
-from cgitb import reset
+# from cgitb import reset
 
 import pytesseract
 import cv2
@@ -51,12 +51,12 @@ def extract_text_from_file(received_file):
         raise ValueError(f"Unsupported file type: {extension}")
 
 # Example usage:
-my_file = "C:/Users/COMTECH COMPUTER/PycharmProjects/Optical_Character_Recognization01/Data01/my_cv09.pdf"
+my_file = "C:/Users/COMTECH COMPUTER/Desktop/ML Internship/Task_4/Task 4.pdf"
 extracted_text = extract_text_from_file(my_file)
-# print(extracted_text)
+print(extracted_text)
 
 # Create a directory
-directory_path = "C:/Users/COMTECH COMPUTER/PycharmProjects/Optical_Character_Recognization01/Data01/extracted_data"
+directory_path = "C:/Users/COMTECH COMPUTER/PycharmProjects/Optical_Character_Recognization01/Data01/extracted_data01"
 if not os.path.exists(directory_path):
     os.makedirs(directory_path)
 
@@ -66,25 +66,25 @@ with open(file_path, "w") as file:
     file.write(extracted_text)
 
 # for email and phone number
-extracted_email = re.compile(r"[a-zA-Z0-9\.+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,4}")
-extracted_number = re.compile(r"\+{1}[0-9]{2} [0-9]{3} [0-9]{7}")
-
-# experience_pattern = re.compile(r'(?:experience|employment history)\s*:\s*(.+?)(?:education|$)')
-experience_pattern = re.compile(
-    r'(adult care experience|childcare experience|employment history)\s*'  # Matches section headers
-    r'(.+?)(?=\n\s*\w)',  # Captures all text until the next section header
-    re.IGNORECASE | re.DOTALL)
-
-email = extracted_email.search(extracted_text)
-print(email.group())
-print(extracted_number.search(extracted_text))
-
-# Find all experience sections
-experience_sections = experience_pattern.findall(extracted_text)
-
-for section in experience_sections:
-    header, content = section
-    print(f"{header.upper()}:")
-    print(content.strip())
-    print()
+# extracted_email = re.compile(r"[a-zA-Z0-9\.+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,4}")
+# extracted_number = re.compile(r"\+{1}[0-9]{2} [0-9]{3} [0-9]{7}")
+#
+# # experience_pattern = re.compile(r'(?:experience|employment history)\s*:\s*(.+?)(?:education|$)')
+# experience_pattern = re.compile(
+#     r'(adult care experience|childcare experience|employment history)\s*'  # Matches section headers
+#     r'(.+?)(?=\n\s*\w)',  # Captures all text until the next section header
+#     re.IGNORECASE | re.DOTALL)
+#
+# email = extracted_email.search(extracted_text)
+# print(email.group())
+# print(extracted_number.search(extracted_text))
+#
+# # Find all experience sections
+# experience_sections = experience_pattern.findall(extracted_text)
+#
+# for section in experience_sections:
+#     header, content = section
+#     print(f"{header.upper()}:")
+#     print(content.strip())
+#     print()
 

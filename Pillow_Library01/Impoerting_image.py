@@ -13,11 +13,11 @@ im = Image.open(im_file)
 print(im.size)
 im.show()
 # Rotate the image
-im.rotate(180).show( )
+rotated_image = im.rotate(180)
 
 #save image into different directory
 #I give full file path
-im.save("C:/Users/COMTECH COMPUTER/PycharmProjects/Optical_Character_Recognization01/Pillow_Library01/image_02.jpg")
+im.save("C:/Users/COMTECH COMPUTER/PycharmProjects/Optical_Character_Recognization01/Pillow_Library01/rotated_image.jpg")
 
 
 

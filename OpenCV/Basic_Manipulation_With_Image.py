@@ -34,6 +34,7 @@ display(img)
 
 
 """1. Inverted Images"""
+# #-> turns white colour into black and vise versa
 # inverted_image = cv2.bitwise_not(img)
 # cv2.imwrite("C:/Users/COMTECH COMPUTER/PycharmProjects/Optical_Character_Recognization01/OpenCV/inverted_01.jpg", inverted_image)
 #
@@ -50,11 +51,12 @@ display(img)
 # cv2.imwrite("C:/Users/COMTECH COMPUTER/PycharmProjects/Optical_Character_Recognization01/OpenCV/gray_image.jpg", gray_image)
 #
 # # Display the grayscale image using the image array
-# # display(gray_image)
+# display(gray_image)
 #
 # thresh, im_bw = cv2.threshold(gray_image, 210, 230, cv2.THRESH_BINARY)
 # cv2.imwrite("OpenCV/bitwise_image.jpg", im_bw)
 # display(im_bw)
+# # display(thresh) #-> Why not able to display
 
 
 """4. Noise Removal"""
@@ -74,7 +76,7 @@ display(img)
 #     # It is effective for removing small black points on the white object.
 #     image = cv2.medianBlur(image, 3)
 #     # It replace each pixel’s value with the median of the neighboring pixel values.
-#     #cv2.medianBlur(image, 3): This function applies a median blur to the image with a kernel size of 3x3.
+#     # cv2.medianBlur(image, 3): This function applies a median blur to the image with a kernel size of 3x3.
 #     # This helps to further reduce noise while preserving edges.
 #     return (image)
 #
@@ -164,7 +166,7 @@ def getSkewAngle(cvImage) -> float:
     cv2.imwrite("OpenCV/boxes.jpg", newImage)
     # Determine the angle. Convert it to the value that was originally used to obtain skewed image
     angle = minAreaRect[-1]
-    #->The last value in minAreaRect is the angle of rotation.
+    # ->The last value in minAreaRect is the angle of rotation.
     if angle < -45:
         angle = 90 + angle
     return -1.0 * angle
@@ -186,6 +188,7 @@ def deskew(cvImage):
     return rotateImage(cvImage, -1.0 * angle)
 
 fixed = deskew(new_image)
+# print(fixed)
 cv2.imwrite("OpenCV/rotated_fixed.jpg", fixed)
 
 display(fixed)

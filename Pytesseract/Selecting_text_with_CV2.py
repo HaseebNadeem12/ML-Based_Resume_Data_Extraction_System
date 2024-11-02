@@ -2,8 +2,10 @@ import pytesseract
 import cv2
 from numpy.ma.core import count
 
-image_with_cv2 = cv2.imread("C:/Users/COMTECH COMPUTER/PycharmProjects/Optical_Character_Recognization01/Data01/image_05(With Colomns).JPG")
+# image_with_cv2 = cv2.imread("C:/Users/COMTECH COMPUTER/PycharmProjects/Optical_Character_Recognization01/Data01/image_05(With Colomns).JPG")
+image_with_cv2 = cv2.imread("C:/Users/COMTECH COMPUTER/PycharmProjects/Optical_Character_Recognization01/Data01/my_doc_image03.jpg")
 # Assigning to another variable (if needed for later use)
+
 Copy_image = image_with_cv2
 # print(image_with_cv2)
 
@@ -20,7 +22,7 @@ cv2.imwrite("C:/Users/COMTECH COMPUTER/PycharmProjects/Optical_Character_Recogni
 threshold_image = cv2.threshold(blur_image,0,255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)[1]
 cv2.imwrite("C:/Users/COMTECH COMPUTER/PycharmProjects/Optical_Character_Recognization01/Pytesseract/threshold_image.JPG",threshold_image)
 
-# 4. Kernal the image
+# 4. Kernal the image(dividing image into rows)
 kernal_image = cv2.getStructuringElement(cv2.MORPH_RECT, (3,13))
 cv2.imwrite("C:/Users/COMTECH COMPUTER/PycharmProjects/Optical_Character_Recognization01/Pytesseract/kernal_image.JPG",kernal_image)
 
@@ -28,13 +30,14 @@ cv2.imwrite("C:/Users/COMTECH COMPUTER/PycharmProjects/Optical_Character_Recogni
 dialate_image = cv2.dilate(threshold_image,kernal_image,iterations=1)
 cv2.imwrite("C:/Users/COMTECH COMPUTER/PycharmProjects/Optical_Character_Recognization01/Pytesseract/dialate_image.JPG",dialate_image)
 
-# 6. Making contours of that dialted image
+# 6. Making contours of that dialated image(boxes on the entire image)
 contour_image = cv2.findContours(dialate_image,cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
 contour_image = contour_image[0] if len(contour_image) == 2 else contour_image[1]
 contour_image = sorted(contour_image, key= lambda x: cv2.boundingRect(x)[0])
+# cv2.imwrite("C:/Users/COMTECH COMPUTER/PycharmProjects/Optical_Character_Recognization01/Pytesseract/contour_image001.JPG",contour_image)
 
-#-> to get the roi result seprately, initializing counter
+#-> to get the row result separately, initializing counter
 roi_counter = 0
 
 result = []
@@ -43,11 +46,11 @@ result = []
 for count in contour_image:
     x, y, w, h = cv2.boundingRect(count)
 
-    #-> condition to get rid from overlaping of selected area(contours)
+    #-> condition to get rio from overlaping of selected area(contours)
     if h > 200 and w > 20 :
 
-        #-> to capture individual bounding boses
-        roi = image_with_cv2[y:y+h , x:x+w]  #-> return last coloumn
+        #-> to capture individual bounding boxes
+        roi = image_with_cv2[y:y+h , x:x+w]  #-> return last column
         cv2.rectangle(image_with_cv2, (x, y), (x + w, y + h), (36, 255, 12), 2)
 
         # storing individual column
@@ -63,25 +66,69 @@ for count in contour_image:
         text_of_roi_01 = text_of_roi_01.split("\n")
         for item in text_of_roi_01:
             result.append(item)
-
 cv2.imwrite("C:/Users/COMTECH COMPUTER/PycharmProjects/Optical_Character_Recognization01/Pytesseract/contour_image.JPG",image_with_cv2)
-# print(result)
+print(result)
+
 
 #-> For further process the text to get desired text
 all_entities = []
-for item in result:
-    item = item.strip()
-    item = item.split(" ")[0]
-    if len(item) > 2 :
-        if item[0].isupper() and "-" not in item:
-            # print(item)
-            item = item.split(".")[0].replace(",","")
-            all_entities.append(item)
-            # print(item)
 
-# to remove all similar entities
-all_entities = list(set(all_entities))
+for item in result:
+
+    if len(item) >= 4 and isinstance(item, str):
+
+        item.replace('\n',"")
+        all_entities.append(item)
+
+        print(item)
+
 print(all_entities)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# for item in result:
+#     # print(item)
+#     item = item.strip()
+#     item = item.replace('\n', "")
+#     # item = item.split(".")[0].replace(" ", " ")
+#     print(item)
+#
+#
+#     item = item.split(" ")[0]
+#     # print(item)
+#
+#     if len(item) > 2 :
+#         if item[0].isupper() and "-" not in item:
+#             # print(item)
+#             item = item.split(".")[0].replace(",","")
+#             item = item.split(".")[0].replace("\n"," ")
+#             # print(item)
+#             all_entities.append(item)
+#             # print(item)
+#
+# # to remove all similar entities
+# all_entities = list(set(all_entities))
+# # print(all_entities)
 
 
 
